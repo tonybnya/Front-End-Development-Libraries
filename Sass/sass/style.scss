@@ -1,0 +1,89 @@
+@import 'mixins';
+
+$text-color: red;
+
+.header {
+
+  text-align: center
+}
+
+.blog-post,
+h2 {
+  color: $text-color
+}
+
+.blog-post {
+  h1 {
+    text-align: center;
+    color: blue;
+  }
+
+  p {
+    font-size: 20px;
+  }
+}
+
+#box {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  @include border-stroke(medium);
+}
+
+#awesome {
+  width: 150px;
+  height: 150px;
+  background-color: green;
+  @include border-radius(15px);
+}
+
+div {
+  height: 200px;
+  width: 200px;
+}
+
+$colors: (
+  blue,
+  black,
+  red
+);
+
+@each $color in $colors {
+  .#{$color}-bg {
+    background-color: $color
+  }
+
+  ;
+}
+
+@for $j from 1 to 6 {
+  .text-#{$j} {
+    font-size: 15px * $j;
+  }
+}
+
+$x: 1;
+
+@while $x < 6 {
+  .text-#{$x} {
+    font-size: 15px * $x
+  }
+
+  ;
+  $x: $x + 1;
+}
+
+h3 {
+  text-align: center;
+}
+
+.info {
+  width: 200px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.info-important {
+  @extend .info;
+  background-color: magenta;
+}
